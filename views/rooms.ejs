@@ -1,0 +1,18 @@
+<script>
+    const roomName = "<%=roomName%>"
+</script>
+<h1>Chatting Rooms</h1>
+
+<div id="message-container">
+    <%messages.forEach(message => {%>
+        <li><%=message.username%>: <%=message.message%> <%=message.createdAt.toISOString().split("T")[0]%></li>
+    <%})%>
+    ######################## ABOVE HISTORY ########################
+    <div id="user-container">
+        <h2>Users Online</h2>
+    </div>
+</div>
+<form action="/room" method="post" id="send-container">
+    <input type="text" id="message-input" name="message">
+    <button type="submit" id="send-button" name="send">Send</button>
+</form>
