@@ -1,12 +1,18 @@
-<h1>Home Page</h1>
-
-<div id="room-container">
-    <%Object.keys(rooms).forEach(room => {%>
-        <div><%=room%></div>
-        <a href="/<%=room%>">Join Room</a>
-    <%})%>
+<div class="container">
+        <h1>Home Page</h1>
 </div>
-<form action="/room" method="post">
-        <input type="text" name="room" required>
-        <button type="submit">New Room</button>
-</form>
+
+<div class="container">
+        <div id="room-container">
+            <%Object.keys(rooms).forEach(room => {%>
+                <div><%=room%></div>
+                <a href="/<%=room%>">Join Room</a>
+            <%})%>
+        </div>
+</div>
+<div class="container">
+        <form action="/room" method="post">
+                <input class="form-control" type="text" name="room" required>
+                <button class="btn btn-primary" type="submit">New Room</button>
+        </form>
+</div>
