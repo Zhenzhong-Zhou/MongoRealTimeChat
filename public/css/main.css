@@ -21,12 +21,12 @@
 }
 
 #message-container div {
-    background-color: green;
+    background-color: white;
     padding: 5px;
 }
 
 #message-container div:nth-child(2n) {
-    background-color: red;
+    background-color: #feff51;
 }
 
 #send-container input {
