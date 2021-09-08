@@ -15,26 +15,14 @@
             <%})%>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <p class="col-md-8">######################## ABOVE HISTORY ########################</p>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-md-12">
-            <div id="user-container" class="form-group">
-                <h2>Users Online</h2>
-                <ul class="list-group"></ul>
-            </div>
-        </div>
+    <p class="col-md-8">######################## ABOVE HISTORY ########################</p>
+    <div id="user-container" class="form-group">
+        <h2>Users Online</h2>
+        <ul class="list-group"></ul>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <form action="/room" method="post" id="send-container" class="form-control">
-            <input class="form-control" type="text" id="message-input" name="message">
-            <button type="submit" class="btn btn-primary" id="send-button" name="send">Send</button>
-        </form>
-    </div>
-</div>
+<form action="/room" method="post" id="send-container" class="form-control">
+    <input class="form-control" type="text" id="message-input" name="message">
+    <button type="submit" class="btn btn-primary" id="send-button" name="send">Send</button>
+</form>

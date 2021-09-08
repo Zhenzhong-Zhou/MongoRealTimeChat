@@ -9,10 +9,10 @@ const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.DATABASE_URL, { useUnifiedTopology: true, useNewUrlParser: true });
-const db = mongoose.connection;
-db.on("error", error => console.error(error));
-db.once("open", () => console.log("Connected to Mongoose......"));
+// mongoose.connect(process.env.DATABASE_URL, { useUnifiedTopology: true, useNewUrlParser: true });
+// const db = mongoose.connection;
+// db.on("error", error => console.error(error));
+// db.once("open", () => console.log("Connected to Mongoose......"));
 
 app.set("view engine",  "ejs");
 app.set("views", __dirname + "/views");
@@ -99,4 +99,14 @@ function getUserRooms(socket) {
     }, []);
 }
 
-server.listen(3000, () => console.log("Server is running...."));
+// use setting.js or .env may include sensitive info
+const db = mongoose.connection;
+db.on("error", error => console.error(error));
+db.once("open", () => console.log("Connected to Mongoose"));
+
+const PORT = process.env.PORT || 3001;
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`)))
+    .catch((error) => console.log(error));
+
+mongoose.set("useFindAndModify", false);
